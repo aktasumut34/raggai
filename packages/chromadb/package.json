@@ -1,5 +1,5 @@
 {
-  "name": "@raggai/interfaces",
+  "name": "@raggai/chromadb",
   "private": false,
   "type": "module",
   "scripts": {
@@ -14,11 +14,14 @@
   "main": "src/index.ts",
   "devDependencies": {
     "@raggai/eslint-config": "workspace:*",
+    "@raggai/interfaces": "workspace:*",
     "@raggai/typescript-config": "workspace:*",
     "tsx": "^4.19.2",
     "typescript": "5.7.3"
   },
   "dependencies": {
-    "danfojs": "^1.1.2"
+    "chromadb": "^1.10.4",
+    "danfojs": "^1.1.2",
+    "@raggai/utils": "workspace:*"
   }
 }
