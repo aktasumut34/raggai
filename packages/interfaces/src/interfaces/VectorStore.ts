@@ -1,4 +1,4 @@
-import { DataFrame } from 'danfojs';
+import { type DataFrame } from 'danfojs';
 
 export abstract class VectorStore {
     constructor() {}
