@@ -1,1 +1,1 @@
-export { deterministicUUID } from "./deterministicUUID.js";
+export { deterministicUUID } from './deterministicUUID.js';

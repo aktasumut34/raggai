@@ -9,7 +9,7 @@ export type ChromaDBConfig = {
     nResultsSQL?: number;
     nResultsDocumentation?: number;
     nResultsDDL?: number;
-    collectionMetadata?: any;
+    collectionMetadata?: Record<string, string | number>;
     embeddingFunction?: IEmbeddingFunction;
 };
 
@@ -106,8 +106,8 @@ export default class ChromaDB implements VectorStore {
             const ids = sqlData.ids as string[];
             const dfSQL = new DataFrame({
                 id: ids,
-                question: documents.map((doc: any) => doc.question),
-                content: documents.map((doc: any) => doc.sql),
+                question: documents.map((doc) => doc.question),
+                content: documents.map((doc) => doc.sql),
             });
             dfSQL.addColumn('training_data_type', Array(dfSQL.shape[0]).fill('sql'));
             df = concat({

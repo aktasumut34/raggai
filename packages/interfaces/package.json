@@ -1,24 +1,24 @@
 {
-  "name": "@raggai/interfaces",
-  "private": false,
-  "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "dev": "tsx watch src/index.ts"
-  },
-  "files": [
-    "src"
-  ],
-  "main": "src/index.ts",
-  "devDependencies": {
-    "@raggai/eslint-config": "workspace:*",
-    "@raggai/typescript-config": "workspace:*",
-    "tsx": "^4.19.2",
-    "typescript": "5.7.3"
-  },
-  "dependencies": {
-    "danfojs": "^1.1.2"
-  }
+    "name": "@raggai/interfaces",
+    "private": false,
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "dev": "tsx watch src/index.ts"
+    },
+    "files": [
+        "src"
+    ],
+    "main": "src/index.ts",
+    "devDependencies": {
+        "@raggai/eslint-config": "workspace:*",
+        "@raggai/typescript-config": "workspace:*",
+        "tsx": "^4.19.2",
+        "typescript": "5.7.3"
+    },
+    "dependencies": {
+        "danfojs": "^1.1.2"
+    }
 }
