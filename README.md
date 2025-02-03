@@ -1,84 +1,69 @@
-# Turborepo starter
+# Raggai
 
-This Turborepo starter is maintained by the Turborepo core team.
+## Packages
 
-## Using this example
+Raggai consists of the following packages:
 
-Run the following command:
+- **@raggai/core**: The core functionalities of the Raggai library.
+- **@raggai/chromadb**: Integration with ChromaDB vector store.
+- **@raggai/mysql**: MySQL database support.
+- **@raggai/openai**: Integration with OpenAI for advanced querying.
 
-```sh
-npx create-turbo@latest
+## Installation
+
+You can install the packages using npm:
+
+```bash
+npm install @raggai/core @raggai/chromadb @raggai/mysql @raggai/openai
 ```
 
-## What's inside?
+or 
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+npm install raggai
 ```
 
-### Develop
+## Usage
 
-To develop all apps and packages, run the following command:
+Here is a basic example of how to use Raggai:
 
+```typescript
+import { Raggai } from '@raggai/core';
+import { ChromaDB } from '@raggai/chromadb';
+import { MySQL } from '@raggai/mysql';
+import { OpenAI } from '@raggai/openai';
+
+const chroma = new ChromaDB(OPTIONS);
+const mysql = new MySQL(OPTIONS);
+const openai = new OpenAI(OPTIONS);
+
+const raggai = new Raggai(openai,chroma,mysql);
+
+// train the model with database schema
+await raggai.trainWithSchema();
+
+//train the model with QA pairs
+await raggai.trainWithQuery('How many users are there in the database?','SELECT COUNT(*) FROM users');
+await raggai.trainWithQuery('What is the total revenue?','SELECT SUM(revenue) FROM sales');
+
+// train with document
+await raggai.trainWithDocument('Our business defines X as Y');
+
+// query for sql
+const result = await raggai.query('How my sales went last month?');
+console.log(result); // SELECT * FROM sales WHERE date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW();
+
+// query for answer
+const result = await raggai.query('What is the total revenue?');
+console.log(result); // You have made $1,000 in revenue.
 ```
-cd my-turborepo
-pnpm dev
-```
 
-### Remote Caching
+## License
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+This project is licensed under the MIT License.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## Contact
 
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+For any questions or feedback, please open an issue on GitHub.

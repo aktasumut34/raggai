@@ -23,7 +23,7 @@ export class Raggai {
         // generate embeddings from question and query and save in VectorStore
     }
 
-    trainWithDocument(question: string, document: string): void {
+    trainWithDocument(document: string): void {
         // generate embeddings from question and document and save in VectorStore
     }
 
