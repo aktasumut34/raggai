@@ -117,6 +117,9 @@ importers:
       '@types/node':
         specifier: ^22.13.0
         version: 22.13.0
+      tiktoken:
+        specifier: ^1.0.19
+        version: 1.0.19
       uuid:
         specifier: ^11.0.5
         version: 11.0.5
@@ -1175,6 +1178,9 @@ packages:
   table@6.7.1:
     resolution: {integrity: sha512-ZGum47Yi6KOOFDE8m223td53ath2enHcYLgOCjGr5ngu8bdIARQk6mN/wRMv4yMRcHnCSnHbCEha4sobQx5yWg==}
     engines: {node: '>=10.0.0'}
+
+  tiktoken@1.0.19:
+    resolution: {integrity: sha512-vgFTegKSjNIQ9oTMpNTForC6zvOfulgQFAj3h+FMI+wTVXEszhud3W1jllVbvfWcWN6rGPRryCnEfqUIOMpzGw==}
 
   tiny-emitter@2.1.0:
     resolution: {integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==}
@@ -2377,6 +2383,8 @@ snapshots:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
+  tiktoken@1.0.19: {}
 
   tiny-emitter@2.1.0: {}
 
