@@ -13,7 +13,7 @@ export type ChromaDBConfig = {
     embeddingFunction?: IEmbeddingFunction;
 };
 
-export default class ChromaDB implements VectorStore {
+export class ChromaDB implements VectorStore {
     private embeddingFunction: IEmbeddingFunction;
     private chromaClient: ChromaClient;
     private documentationCollection?: Collection;
@@ -22,9 +22,9 @@ export default class ChromaDB implements VectorStore {
     private nResultsSql: number;
     private nResultsDocumentation: number;
     private nResultsDDL: number;
-    private config?: ChromaDBConfig;
+    private config: ChromaDBConfig;
 
-    constructor(config?: ChromaDBConfig) {
+    constructor(config: ChromaDBConfig = {}) {
         this.config = config;
         const path: string = this.config?.path || '.';
         this.embeddingFunction = this.config?.embeddingFunction || new DefaultEmbeddingFunction();
