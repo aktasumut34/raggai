@@ -50,11 +50,11 @@ await raggai.trainWithQuery('What is the total revenue?','SELECT SUM(revenue) FR
 await raggai.trainWithDocument('Our business defines X as Y');
 
 // query for sql
-const result = await raggai.query('How my sales went last month?');
+const result = await raggai.generateSQL('How my sales went last month?');
 console.log(result); // SELECT * FROM sales WHERE date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW();
 
 // query for answer
-const result = await raggai.query('What is the total revenue?');
+const result = await raggai.ask('What is the total revenue?');
 console.log(result); // You have made $1,000 in revenue.
 ```
 

@@ -27,6 +27,13 @@ export class Raggai {
         // generate embeddings from question and document and save in VectorStore
     }
 
+    generateSQL(question: string): string {
+        // generate embeddings from question and query the VectorStore
+        this.generatePrompt(question);
+
+        return '';
+    }
+
     ask(question: string) {
         // generate embeddings from question and query the VectorStore
         this.generatePrompt(question);
